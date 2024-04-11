@@ -35,7 +35,7 @@ def updatemember(conn, Fname, Lname, Birthday, Weight, Resting_Heart_Rate, Blood
 
 def addgoal(conn, Member_ID, Metric, Value):
     cur = conn.cursor()
-    cmd = "INSERT INTO members(Member_ID, Metric, Value) VALUES(%s,%s,%s);"
+    cmd = "INSERT INTO goals(Member_ID, Metric, Value) VALUES(%s,%s,%s);"
     cur.execute(cmd, (Member_ID, Metric, Value))
     conn.commit()
     cur.close()
@@ -47,10 +47,10 @@ def updategoal(conn,Goal_ID, Metric, Value):
     conn.commit()
     cur.close()
 
-def addactivity(conn, Member_ID, Metric, Value):
+def addactivity(conn, Member_ID, Date, Num_Minutes, Activity):
     cur = conn.cursor()
-    cmd = "INSERT INTO members(Member_ID, Metric, Value) VALUES(%s,%s,%s);"
-    cur.execute(cmd, (Member_ID, Metric, Value))
+    cmd = "INSERT INTO activities(Member_ID, Date, Num_Minutes, Activity) VALUES(%s,%s,%s);"
+    cur.execute(cmd, (Member_ID, Date, Num_Minutes, Activity))
     conn.commit()
     cur.close()
 
